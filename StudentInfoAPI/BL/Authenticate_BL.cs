@@ -16,9 +16,11 @@ namespace StudentInfo.BL
             Dictionary<string, object> IncPara = new Dictionary<string, object>();
             string MobileNo = data["MobileNo"].ToString();
             string fcmToken = data["fcmToken"].ToString();
+            string deviceId = data["deviceId"].ToString();
 
             IncPara.Add("@MobileNo", MobileNo);
             IncPara.Add("@fcmToken", fcmToken);
+            IncPara.Add("@deviceId", deviceId);
 
             DataTable dtData = _DataAccess.GetDataTable("pGetOTP", null, IncPara, null);
             RtnObject["Data"] = dtData.ToString();
